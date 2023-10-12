@@ -3,17 +3,17 @@ Discordと接続し、TTSを行うBOTと周辺サービスです。
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version  
 3.1  
 
-* System dependencies
+* System dependencies  
 DiscordでTTSBotを動かすにあたって、Discordrbのvoiceに関する前提ソフトウェアがあります。
 ffmpeg
 libopus
 libsodium
 また、デフォルトはvoicevoxを使いますので、voicevoxがセットアップされている必要があります。
 
-* Configuration
+* Configuration  
 env.sampleを参照
 
 * Database creation
@@ -24,7 +24,7 @@ env.sampleを参照
 
 * Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+* Deployment instructions  
 docker build -t kikisenbot:development .
 docker-compose up -d
 
