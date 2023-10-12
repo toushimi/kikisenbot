@@ -24,8 +24,10 @@ env.sampleを参照
 
 * Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions  
+* Deployment instructions
+```
 docker build -t kikisenbot:development .
 docker-compose up -d
+```
 
 * ...
