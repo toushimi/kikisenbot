@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Users</h1>
+
+<div id="users">
+  <% @users.each do |user| %>
+    <%= render user %>
+    <div>
+      <span><%= link_to "#{user.name}", user_path(user.discord_user_id) %></span>
+      <span><%= user.count %></span>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to "New user", new_user_path %>

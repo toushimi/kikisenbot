@@ -1,0 +1,68 @@
+version: '3'
+
+services:
+  db:
+    image: mariadb:latest
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=pwd
+      - MYSQL_USER=kikisenbot
+      - MYSQL_PASSWORD=pwd
+    ports:
+      - "3306:3306"
+    volumes:
+      - db:/var/lib/mysql
+  web:
+    image: kikisenbot:development
+    ports:
+      - "3000:3000"
+    command:
+      [ "bash", "-c", "rm -f tmp/pids/server.pid; bundle exec rails s -b 0.0.0.0" ]
+    volumes:
+      - .:/kikisenbot
+      - storage:/kikisenbot/storage
+      - bundle:/usr/local/bundle
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1m"
+        max-file: "2"
+    env_file:
+      - .env
+    depends_on:
+      - db
+  bot:
+    image: kikisenbot:development
+    command: "bundle exec ruby bot/discord_bot.rb"
+    restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1m"
+        max-file: "2"
+    env_file:
+      - .env
+    depends_on:
+      - web
+      - voicevox
+  voicevox:
+    image: voicevox/voicevox_engine:cpu-ubuntu20.04-latest
+    restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1m"
+        max-file: "2"
+    ports:
+      - "50021:50021"
+    depends_on: 
+      - web
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+
+volumes:
+  bundle:
+  db:
+  storage:

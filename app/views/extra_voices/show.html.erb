@@ -1,0 +1,27 @@
+<h1>Extra Voice<%= "(#{@extra_voice.matching})" %></h1>
+
+<div>
+  <div class="id">
+    <span class="key">ID</span>
+    <span class="value id"><%= @extra_voice.id %></span>
+  </div>
+  <div class="matching">
+    <span class="key">対象文字列</span>
+    <span class="value matching"><%= @extra_voice.matching %></span>
+  </div>
+  <div class="actor">
+    <span class="key">対象声別</span>
+    <span class="actor"><%= link_to "#{@extra_voice.voice_actor.name}", @extra_voice.voice_actor %></span>
+  </div>
+  <div class="count">
+    <span class="key">呼び出し回数</span>
+    <span class="actor"><%= "#{@extra_voice.count}" %></span>
+  </div>
+  <div class="file">
+    <span class="key">ファイル</span>
+    <span class="audio"> <%= audio_tag(polymorphic_path(@extra_voice.voice), controls: true) %></span>
+  </div>
+</div>
+
+<div><%= link_to "編集", edit_extra_voice_path %></div>
+<div><%= link_to "Extra Voice", extra_voices_path %></div>

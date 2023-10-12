@@ -1,0 +1,18 @@
+<div id="<%= dom_id voice_actor %>">
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>名前</th>
+      <th>URL</th>
+      <th>VoiceID</th>
+      <th>呼び出し回数</th>
+    </tr>
+    <tr>
+      <td><%= voice_actor.id %></td>
+      <td><%= link_to voice_actor.name,voice_actor_path(voice_actor) %></td>
+      <td><%= voice_actor.url %></td>
+      <td><%= voice_actor.uuid %></td>
+      <td><%= voice_actor.count %></td>
+    </tr>
+  </table>
+</div>

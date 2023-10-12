@@ -1,0 +1,29 @@
+<%= form_with(model: voice_actor) do |form| %>
+  <% if voice_actor.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(voice_actor.errors.count, "error") %> prohibited this voice_actor from being saved:</h2>
+
+      <ul>
+        <% voice_actor.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <div class="actor">
+      <span class="key">名前</span>
+      <span class="value name"><%= form.text_field :name %></span>
+    </div>
+    <div class="url">
+      <span class="key">文字列(完全一致)</span>
+      <span class="value matching"><%= form.text_field :matching %></span>
+    </div>
+    <div class="voice">
+      <span class="key">ファイル</span>
+      <span class="value file"><%= form.file_field :voice, accept: 'audio/wav' %></span>
+    </div>
+    <span class="button"><%= form.submit %></span>
+  </div>
+<% end %>

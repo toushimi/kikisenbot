@@ -1,0 +1,11 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>VoiceActors</h1>
+
+<div id="voice_actors">
+  <% @voice_actors.each do |voice_actor| %>
+    <%= render voice_actor %>
+  <% end %>
+</div>
+
+<%= link_to "New voice_actor", new_voice_actor_path %>

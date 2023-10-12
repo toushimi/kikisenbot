@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  voice_actor_id: one
+  matching: MyString
+
+two:
+  voice_actor_id: two
+  matching: MyString

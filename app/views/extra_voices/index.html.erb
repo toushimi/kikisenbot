@@ -1,0 +1,24 @@
+<p style="color: green"><%= notice %></p>
+<h1>ExtraVoices</h1>
+
+<div id="extra_voice">
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>対象文字列</th>
+      <th>対応声別</th>
+      <th>呼び出し回数</th>
+    </tr>
+    <% @extra_voices.each do |extra_voice| %>
+      <tr>
+        <td><span class="id"><%= extra_voice.id %></span></td>
+        <td><span class="matching"><%= link_to "#{extra_voice.matching}", extra_voice %></span></td>
+        <td><span class="actor"><%= link_to "#{extra_voice.voice_actor.name}", extra_voice.voice_actor %></span></td>
+        <td><span class="count"><%= "#{extra_voice.count}" %></span></td>
+        <td><span class="destroy"><%= button_to("削除", extra_voice_path(extra_voice),method: :delete) %></span></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<%= link_to "New extra_voice", new_extra_voice_path %>
