@@ -7,11 +7,11 @@ Things you may want to cover:
 3.1  
 
 * System dependencies  
-DiscordでTTSBotを動かすにあたって、Discordrbのvoiceに関する前提ソフトウェアがあります。
-ffmpeg
-libopus
-libsodium
-また、デフォルトはvoicevoxを使いますので、voicevoxがセットアップされている必要があります。
+DiscordでTTSBotを動かすにあたって、Discordrbのvoiceに関する前提ソフトウェアがあります。  
+ffmpeg  
+libopus  
+libsodium  
+また、デフォルトはvoicevoxを使いますので、voicevoxがセットアップされている必要があります。 
 
 * Configuration  
 env.sampleを参照
