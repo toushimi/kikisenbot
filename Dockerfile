@@ -5,6 +5,7 @@ RUN apt-get update && apt-get install -y \
       libopus-dev libopus0 \
       libsodium-dev libsodium23 \
       wget \
+      chromium \
       xz-utils && \
       apt-get clean && rm -rf /var/lib/apt/lists/*
 RUN wget https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz \
