@@ -4,6 +4,7 @@ require 'json'
 require 'uri'
 require 'twitter'
 require 'thread'
+require 'ferrum'
 
 # User Library
 require_relative 'lib/text'
@@ -53,6 +54,7 @@ $bot.direct_message do |event|
 end
 # TTS
 $bot.message do |event|
+  embedded_twitter_url(event) if event.message.content.include?('twitter.com')|| event.message.content.include?('x.com')
   puts "$tts.keys.include? #{$tts.keys.include?(event.channel.id)}"
   break unless $tts.keys.include?(event.channel.id)
   puts "$voice[$tts[event.channel.id]] is  #{$voice[$tts[event.channel.id]]}"
